@@ -2,17 +2,16 @@
 using namespace std;
 
 int main(){
-    int mx,k,rs=0;
-    cin>>mx>>k;
-    chat s[7]={};
-    snprintf(s, sizeof(s), "%d", mx);
+    int mx,rs,ct=0;
+    cin>>mx>>ct;
     for(int i=1;i<=mx;i++){
-        string ct=to_string(i);
-        int len=ct.length();
-        for(int j=0;j<=len-1;j++){
-            char am=k;
-            if(ct[j]==am) rs+=1;
+        int md=i;
+        while(md!=0){ //每循环一次砍一位
+            int a=md%10;
+            md=md/10; //从低位到高位查a
+            if(a==ct) rs+=1;
         }
     }
     cout<<rs;
+    return 0;
 }
