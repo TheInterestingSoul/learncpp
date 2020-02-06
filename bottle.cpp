@@ -4,10 +4,14 @@
 * prc个瓶盖也可以换一瓶，
 * 现有money元
 * 问最多喝到多少瓶
+* （老板：不准赊账！不准借喝！）
 *
-* 输入：money price prb prc
+* 输入：money price prb prc （网络中流传的版本大多数为10 2 2 4）
 * 均为正整数
 * 输出：一个数（rs）
+*
+* 实际上，最优惠的办法不是借瓶子，而是拿100元而不是10元
+* 单价从0.666元降到0.510元
 */
 #include<iostream>
 using namespace std;
@@ -40,7 +44,8 @@ int main(){
     while((bottle/prb>0)||(cap/prc>0)){ //瓶盖或瓶身任意一类还能换即可
         get_bottle();
         get_cap();
-        }
+        } //瓶身换完换瓶盖，瓶盖换完换瓶身，交替进行
+        // 感兴趣的同学，可以尝试添加在此借瓶逻辑：借了与没借比较，尤其是cap mod prc为1的时候最合算
     cout<<rs;
     return 0;
     }
